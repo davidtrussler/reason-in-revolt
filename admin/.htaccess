@@ -1,0 +1,12 @@
+# ErrorDocument 401 /home/davidtrussler/public_html/gimaju/rejection.html
+
+# local
+# AuthUserFile /home/davidtrussler/security/davidtrussler/.htpass
+
+# remote
+# AuthUserFile /home/futuragr/security/davidtrussler/.htpass
+
+AuthGroupFile /dev/null
+AuthName "Admin Area"
+AuthType Basic
+# require valid-user

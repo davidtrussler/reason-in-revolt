@@ -1,0 +1,24 @@
+RewriteEngine On
+
+# local server
+RewriteBase /reason-in-revolt
+
+# remote server
+# RewriteBase http://davidtrussler.net
+
+# remote server temporary
+# RewriteBase /~futuragr/davidtrussler/
+
+# home
+RewriteRule ^/?$ home/index.php 
+# RewriteRule ^home/?$ home/index.php
+# RewriteRule ^index/?$ index.php
+
+# blog
+RewriteRule ^blog/?$ blog/blog_main.php [L]
+RewriteRule ^blog/(.+)/$ blog/blog_main.php?postId=$1
+RewriteRule ^blog/([0-9]+)/(.+[^/])/?$ blog/blog_main.php?postId=$1&$2
+RewriteRule ^blog_comment_save/([0-9]+)/?$ blog/blog_comment_save.php?postId=$1
+
+# http://www.addedbytes.com/for-beginners/url-rewriting-for-beginners/
+# www.dracos.co.uk/code/apache-rewrite-problem/
