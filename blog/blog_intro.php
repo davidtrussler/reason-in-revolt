@@ -1,7 +1,7 @@
 <!-- BEGIN blog_intro -->
-<div id="intro">
-	<h2>Blog</h2>
+<section>
+	<h2>Blog intro heading</h2>
 
 	<p>Blog intro para</p>
-</div>
+</section>
 <!-- END blog_intro -->

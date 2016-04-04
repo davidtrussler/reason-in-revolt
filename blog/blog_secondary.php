@@ -1,6 +1,6 @@
 <!-- BEGIN blog_secondary -->
-<div>
-	<h3>Recent posts</h3>
+<section>
+	<h2>Recent posts</h2>
 
 <?php
 
@@ -10,31 +10,25 @@
  * take out multiple db queries!
  */
 for ($i = 0; $i < count($posts); $i++) {
-	// $thisPostId = $postIdArray[$i]; 
-
-	// $post = $weblog->getPost($thisPostId);
+	$dateFormatter = new DateFormatter($post[2]);
+	$date = $dateFormatter->formatDate(); 
 	$post = $posts[$i]; 
-
 	$thisPostId = $post[0]; 
 	$titleId = $post[1]; 
-	$date = $post[2]; 
-		$date = $dateFormatter->formatDate($date); 
-	// $title = $post[3]; 
 	$title = htmlspecialchars_decode($post[3], ENT_QUOTES);
 
 ?>
 
-	<div>
-		<p><?php echo $date ?></p>
+	<article>
+		<time datetime=""><?php echo $date ?></time>
 
 <?php
 
-		// if ($postId == $postIdArray[$i]) {
 		if ($postId == $thisPostId) {
 
 ?>
 
-		<p><?php echo $title ?></p>
+		<h3><?php echo $title ?></h3>
 
 <?php
 
@@ -42,11 +36,11 @@ for ($i = 0; $i < count($posts); $i++) {
 
 ?>
 
-		<p>
+		<h3>
 			<a href="<?php echo $SERVER_ROOT.'/blog/'.$titleId.'/'; ?>">
 				<?php echo $title; ?>
 			</a>
-		</p>
+		</h3>
 
 <?php
 
@@ -54,7 +48,7 @@ for ($i = 0; $i < count($posts); $i++) {
 
 ?>
 
-	</div>
+	</article>
 
 <?php
 
@@ -62,5 +56,5 @@ for ($i = 0; $i < count($posts); $i++) {
 
 ?>
 
-</div>
+</section>
 <!-- END blog_secondary -->

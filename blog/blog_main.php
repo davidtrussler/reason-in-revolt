@@ -28,18 +28,12 @@ include ('../common/head.php');
 ?>
 
 	<body>
-		<div>
 
 <?php
 
 include ('../common/header.php');
 
-?>
-
-<?php
-
 $weblog = new Weblog($DOC_ROOT);
-$dateFormatter = new DateFormatter();
 
 // TODO - get blog posts as object not 2 db requests
 // and get post from titleid not postid
@@ -51,13 +45,6 @@ if (isset($_GET['tagNameId'])) {
 	$posts = $weblog->getPosts(); 
 }
 
-?>
-
-			<!-- BEGIN main -->
-			<div>
-
-<?php
-
 if (!isset($_GET['postId'])) {
 	include ('blog_intro.php'); 
 }
@@ -68,17 +55,9 @@ if (isset($_GET['postId'])) {
 	include ($DOC_ROOT.'/blog/blog_secondary.php'); 
 }
 
-?>
-
-			</div>
-			<!-- END main -->
-
-<?php
-
 include ('../common/footer.php');
 
 ?>
 
-		</div>
 	</body>
 </html>

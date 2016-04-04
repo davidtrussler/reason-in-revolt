@@ -1,5 +1,5 @@
 <!-- BEGIN secondary -->
-<div>
+<section>
 	<h2>Latest Blog Posts</h2>
 
 	<ul>
@@ -14,13 +14,14 @@ $titleId = $post['titleId'];
 
 ?>
 
-	<li><a href="<?php echo $SERVER_ROOT.'blog/'.$titleId.'/'; ?>"><?php echo $title ?></a></li>
+		<li><a href="<?php echo $SERVER_ROOT.'blog/'.$titleId.'/'; ?>"><?php echo $title ?></a></li>
 
 <?php
 
 }
 
 ?>
+
 	</ul>
-</div>
+</section>
 <!-- END secondary -->

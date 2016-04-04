@@ -1,7 +1,9 @@
 <!-- BEGIN footer -->
-<div>
+<footer>
 	<?php include '../common/social-sharing.php'; ?>
 
-	<p class="credit">&#169; David Trussler <?php echo date('Y'); ?></p>
-</div>
+	<p>&#169; David Trussler 
+		<time datetime="<?php echo date('Y'); ?>"><?php echo date('Y'); ?></time>
+	</p>
+</footer>
 <!-- END footer -->

@@ -1,6 +1,4 @@
 <!-- BEGIN main -->
-<div>
-
 <?php
 
 $weblog = new Weblog($DOC_ROOT);
@@ -12,6 +10,4 @@ include ('primary.php');
 include ('secondary.php');
 
 ?>
-
-</div>
 <!-- END main -->

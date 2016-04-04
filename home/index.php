@@ -1,6 +1,6 @@
 <?php include ('../common/doctype.php'); ?>
 
-<html>
+<html lang="en">
 
 <?php
 
@@ -14,12 +14,10 @@ include ('../common/head.php');
 ?>
 
 	<body>
-		<div>
 
 <?php include('../common/header.php'); ?>
 <?php include('main.php'); ?>
 <?php include ('../common/footer.php'); ?>
 
-		</div>
 	</body>
 </html>

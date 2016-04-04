@@ -1,4 +1,7 @@
 <!-- BEGIN blog_post -->
+<section>
+	<h2>Post header</h2>
+
 <?php
 
 @session_start();
@@ -6,8 +9,7 @@
 include ('../common/sessions.php'); 
 
 $sessions = new Sessions();
-// $postClass = ''; 
-$postBody = ''; 
+// $postBody = ''; 
 $paras = array(); 
 
 // unset all sessions if arriving to the post for the first time
@@ -17,47 +19,38 @@ if (!isset($_GET['from']) || (isset($_GET['from']) && $_GET['from'] != 'saved'))
 
 if (isset($numPosts)) {
 	$postId = $postIdArray[$numPosts]; 
-
-	/*
-	if ($numPosts == count($postIdArray) - 1) {
-		$postClass = ' last'; 
-	}
-	*/
 }
 
 $numComments = $weblog->getNumComments($postId); 
 
 ?>
 
-<div>
-	<p><?php echo $date; ?></p>
+	<article>
+		<header>
+			<time datetime="<?php echo $dateFormatter->getNumericYear().'-'.$dateFormatter->getNumericMonth().'-'.$dateFormatter->getNumericDay(); ?>">
+				<?php echo $dateFormatter->formatDate(); ?>
+			</time>
 
 <?php
 
-// title
-echo '<h2>'.html_entity_decode($postTitle).'</h2>'; 
-
-// body
-echo $body; 
-
-/*
- * comments - removed until made safe
- * 
-if ($numComments == 1) {
-	$commentText = 'comment'; 
-} else {
-	$commentText = 'comments'; 
-}
+	// title
+	echo '<h2>'.html_entity_decode($postTitle).'</h2>'; 
 
 ?>
 
-	<p><?php echo $numComments; ?>&nbsp;<?php echo $commentText; ?></p>
-*/
+		</header>
+
+<?php
+
+	// body
+	echo $body; 
 
 ?>
 
-	<div>
-		<h3>Share this article</h3>
+	</article>
+
+	<article>
+		<h2>Share this article</h2>
 
 		<ul>
 			<li>
@@ -68,7 +61,8 @@ if ($numComments == 1) {
 			  <a href="https://www.facebook.com/sharer.php?u=<?php echo $SERVER_ROOT; ?>/blog/<?php echo $titleId; ?>/" target="_blank">Facebook</a>
 			</li>
 		</ul>
-	</div>
+	</article>
+</section>
 
 <?php
 /* }
@@ -105,5 +99,4 @@ if (count($postIdArray) > 1) {
 
 ?>
 
-</div> 
 <!-- END blog_post -->

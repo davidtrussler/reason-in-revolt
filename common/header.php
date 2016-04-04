@@ -1,5 +1,5 @@
 <!-- BEGIN header -->
-<div>
+<header>
 	<h1>Reason in revolt</h1>
 
 <?php
@@ -8,5 +8,5 @@ include ('../common/nav.php');
 
 ?>
 
-</div>
+</header>
 <!-- END header -->

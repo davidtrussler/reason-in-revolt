@@ -1,4 +1,5 @@
 <!-- BEGIN blog_comments -->
+<section>
 
 <?php
 
@@ -48,9 +49,12 @@ $comments = $weblog->getComments($postId);
 if (count($comments) > 0) {
 	$i = 0; 
 
-	echo '<div>
-		<h3>Comments</h3>';
-			
+?>
+
+<h2>Comments</h2>
+
+<?php
+
 	if (isset($saveComment)) {
 		echo '<p>'.$saveComment.'</p>'; 
 	}
@@ -74,8 +78,9 @@ if (count($comments) > 0) {
 		
 ?>
 
-	<div>
-		<p><?php echo $date; ?></p>
+	<article>
+		<h3>Comment header</h3>
+		<time><?php echo $date; ?></time>
 		
 <?php
 
@@ -88,7 +93,7 @@ if (count($comments) > 0) {
 ?>
 
 		<p><?php echo $body; ?></p>
-	</div>
+	</article>
 
 <?php
 
@@ -96,7 +101,7 @@ if (count($comments) > 0) {
 
 ?>
 
-</div>
+</section>
 
 <?php
 
@@ -104,22 +109,18 @@ if (count($comments) > 0) {
 
 ?>
 
+<section>
  
-
 <?php 
 
 // only show comments if the post is less than a defined age.
 if ($postAge > $COMMENT_EXPIRE) {
-	echo 
-		'<div>
-			<p>Adding comments has now expired for this post.</p>
-		</div>'; 
+	echo '<p>Adding comments has now expired for this post.</p>';
 } else {
-	echo '<div>'; 
 
 ?>
 
-	<h3>Add a comment</h3>
+	<h2>Add a comment</h2>
 
 <?php
 
@@ -144,12 +145,12 @@ if (isset($_SESSION['saveComment'])) {
 
 ?>
 
-		<form action="<?php echo $SERVER_ROOT; ?>/blog_comment_save/<?php echo $postId; ?>" method="post">
-			<input type="hidden" name="action" value="saveComment"/>
-	
-			<fieldset>
-				<!-- name -->
-				<div>
+	<form action="<?php echo $SERVER_ROOT; ?>/blog_comment_save/<?php echo $postId; ?>" method="post">
+		<input type="hidden" name="action" value="saveComment"/>
+
+		<fieldset>
+			<!-- name -->
+			<div>
 
 <?php
 
@@ -159,19 +160,19 @@ if (isset($emptyFieldArray) && in_array('name', $emptyFieldArray)) {
 
 ?>
 
-					<label for="name">Your name:</label>
-					<input 
-						type="text" 
-						name="name" 
-						value="<?php echo $commentAuthor; ?>" 
-						id="name"
-						placeholder="name"
-					/>
-				</div> 
-				<!-- end name -->
-	
-				<!-- email address -->
-				<div>
+				<label for="name">Your name:</label>
+				<input 
+					type="text" 
+					name="name" 
+					value="<?php echo $commentAuthor; ?>" 
+					id="name"
+					placeholder="name"
+				/>
+			</div> 
+			<!-- end name -->
+
+			<!-- email address -->
+			<div>
 
 <?php
 
@@ -183,32 +184,32 @@ if (isset($emptyFieldArray) && in_array('email', $emptyFieldArray)) {
 
 ?>
 
-					<label for="email">Your email address (this will not be published):</label>
-					<input 
-						type="email" 
-						name="email" 
-						value="<?php echo $commentEmail; ?>" 
-						id="email"
-						placeholder="email"
-					/>
-				</div> 
-				<!-- end email address -->
-	
-				<!-- web address -->
-				<div>
-					<label for="website">Your website address (optional):</label>
-					<input 
-						type="url" 
-						name="website" 
-						value="<?php echo $commentWebsite; ?>" 
-						id="website"
-						placeholder="website"
-					/>
-				</div> 
-				<!-- end web address -->
-	
-				<!-- comment -->
-				<div>
+				<label for="email">Your email address (this will not be published):</label>
+				<input 
+					type="email" 
+					name="email" 
+					value="<?php echo $commentEmail; ?>" 
+					id="email"
+					placeholder="email"
+				/>
+			</div> 
+			<!-- end email address -->
+
+			<!-- web address -->
+			<div>
+				<label for="website">Your website address (optional):</label>
+				<input 
+					type="url" 
+					name="website" 
+					value="<?php echo $commentWebsite; ?>" 
+					id="website"
+					placeholder="website"
+				/>
+			</div> 
+			<!-- end web address -->
+
+			<!-- comment -->
+			<div>
 
 <?php
 
@@ -218,20 +219,20 @@ if (isset($emptyFieldArray) && in_array('comment', $emptyFieldArray)) {
 
 ?>
 
-					<label for="comment">Your comment:</label>
-					<textarea name="comment" id="comment"><?php echo $commentBody; ?></textarea>
-				</div>
-				<!-- end comment -->
-	
-				<!-- notify -->
-				<div>
-					<input id="notify" type="checkbox" name="notify"/>
-					<label for="notify">Tick here to be notified of further comments on this post</label>
-				</div> 
-				<!-- end notify -->
-	
-				<!-- captcha -->
-				<div>
+				<label for="comment">Your comment:</label>
+				<textarea name="comment" id="comment"><?php echo $commentBody; ?></textarea>
+			</div>
+			<!-- end comment -->
+
+			<!-- notify -->
+			<div>
+				<input id="notify" type="checkbox" name="notify"/>
+				<label for="notify">Tick here to be notified of further comments on this post</label>
+			</div> 
+			<!-- end notify -->
+
+			<!-- captcha -->
+			<div>
 
 <?php
 
@@ -245,31 +246,32 @@ if (isset($validCaptcha) && $validCaptcha == 'invalid') {
 
 ?>
 
-					<label for="captcha">Answer this question: <?php echo $captcha_value_1; ?> + <?php echo $captcha_value_2; ?> = </label>
-					<input 
-						type="text" 
-						min="0"
-						max="20"
-						step="1"
-						name="captcha_input" 
-						value=""
-					/>
-					<input type="hidden" name="captcha_validate" value="<?php echo $captcha_validate; ?>"/>
-				</div> 
-				<!-- end captcha -->
-	
-				<!-- actions -->
-				<div>
-					<button>Post your comment</button>
-				</div>
-				<!-- end actions -->
-			</fieldset>
-		</form>
-	</div>
+				<label for="captcha">Answer this question: <?php echo $captcha_value_1; ?> + <?php echo $captcha_value_2; ?> = </label>
+				<input 
+					type="text" 
+					min="0"
+					max="20"
+					step="1"
+					name="captcha_input" 
+					value=""
+				/>
+				<input type="hidden" name="captcha_validate" value="<?php echo $captcha_validate; ?>"/>
+			</div> 
+			<!-- end captcha -->
+
+			<!-- actions -->
+			<div>
+				<button>Post your comment</button>
+			</div>
+			<!-- end actions -->
+		</fieldset>
+	</form>
 
 <?php
 
 }
 
 ?>
+
+</section>
 <!-- END blog_comments -->

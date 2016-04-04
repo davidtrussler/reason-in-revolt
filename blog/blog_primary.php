@@ -1,5 +1,4 @@
 <!-- BEGIN blog_primary -->
-<div>
 
 <?php
 
@@ -23,17 +22,16 @@ if (isset($_GET['postId']) && $_GET['postId'] != '') {
 	}
 	
 	if (isset($post['timestamp'])) {
-		$date = $weblog->formatDate($post['timestamp']); 
+		// $date = $weblog->formatDate($post['timestamp']); 
+		$dateFormatter = new DateFormatter($post['timestamp']);
 	} else {
 		$date = 'never'; 
 	}
 	
 	if (isset($post['body'])) {
 		$body = ''; 
-	
 		$bodyXml = new DOMDocument();
 		$bodyXml->loadXML(htmlspecialchars_decode($post['body']));
-	
 		$paras = $bodyXml->getElementsByTagName('para');
 	
 		foreach ($paras as $para) {
@@ -53,32 +51,48 @@ if (isset($_GET['postId']) && $_GET['postId'] != '') {
 	// display comments 
 	include ('blog_comments.php'); 
 } else {
-	foreach ($posts as $post) {
-		$postId = $post[0]; 
-		$titleId = $post[1]; 
-		$date = $post[2]; 
-			$date = $dateFormatter->formatDate($date); 
-		$title = htmlspecialchars_decode($post[3]); 
-		$body = simplexml_load_string(htmlspecialchars_decode($post[4])); 
-			$body_trunc = $body->para[0]; 
 
 ?>
 
-	<div>
-		<p class="date"><?php echo $date; ?></p>
-		<h3><?php echo $title; ?></h3>
+	<section>
+		<h2>Blog posts</h2>
+
+<?php
+
+	foreach ($posts as $post) {
+		$dateFormatter = new DateFormatter($post[2]);
+		$postId = $post[0]; 
+		$titleId = $post[1]; 
+		$title = htmlspecialchars_decode($post[3]); 
+		$body = simplexml_load_string(htmlspecialchars_decode($post[4])); 
+		$body_trunc = $body->para[0]; 
+
+?>
+
+	<article>
+		<time datetime="<?php echo $dateFormatter->getNumericYear().'-'.$dateFormatter->getNumericMonth().'-'.$dateFormatter->getNumericDay(); ?>">
+			<?php echo $dateFormatter->formatDate(); ?>
+		</time>
+
+		<h2><?php echo $title; ?></h2>
 		<p>
 			<?php echo $body_trunc; ?>
-			<span><a href="<?php echo $SERVER_ROOT.'/blog/'.$titleId.'/'; ?>">Read more &#8230;</a></span>
+			<span><a href="<?php echo $SERVER_ROOT.'/blog/'.$titleId.'/'; ?>">Read more</a></span>
 		</p>
-	</div>
+	</article>
 
 <?php
 
 	}
+
+?>
+
+	</section>
+
+<?php
+
 }
 
 ?>
 
-</div>
 <!-- END blog_primary -->
