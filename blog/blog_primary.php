@@ -35,7 +35,9 @@ if (isset($_GET['postId']) && $_GET['postId'] != '') {
 		$paras = $bodyXml->getElementsByTagName('para');
 	
 		foreach ($paras as $para) {
-			$body .= '<p>'.$para->nodeValue.'</p>'; 
+			if ($para->nodeValue != '') {
+				$body .= '<p>'.$para->nodeValue.'</p>'; 
+			}
 		}
 	} else {
 		$body = 'this post has no content'; 
