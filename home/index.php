@@ -13,7 +13,7 @@ include ('../common/head.php');
 
 ?>
 
-	<body>
+	<body class="home">
 
 <?php include('../common/header.php'); ?>
 <?php include('main.php'); ?>
