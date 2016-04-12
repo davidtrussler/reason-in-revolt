@@ -3,17 +3,16 @@
 $column-width: 60px !default;
 $gutter-width: 40px !default;
 $columns: 12 !default;
+$total-width: 100%;
 
 @function gridsystem-width($columns: $columns) {
   @return ($column-width * $columns) + ($gutter-width * $columns);
 }
 
-$total-width: 100%;
-
 @mixin column($x, $columns: $columns) {
-  display: inline;
+  // display: inline;
   float: left;
-  width: $total-width*(((($gutter-width+$column-width)*$x)-$gutter-width) / gridsystem-width($columns));
-  margin-left: $total-width*(($gutter-width*.5)/gridsystem-width($columns));
-  margin-right: $total-width*(($gutter-width*.5)/gridsystem-width($columns));
+  width: $total-width * (((($gutter-width + $column-width) * $x) - $gutter-width) / gridsystem-width($columns));
+  margin-left: $total-width * (($gutter-width * .5) / gridsystem-width($columns));
+  margin-right: $total-width * (($gutter-width *.5) / gridsystem-width($columns));
 }
