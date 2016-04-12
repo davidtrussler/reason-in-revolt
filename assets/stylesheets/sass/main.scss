@@ -1,15 +1,20 @@
 // helpers
 @import 'helpers/variables.scss';
+@import 'helpers/mixins.scss';
 
 // layout
 @import 'layout/grid.scss';
+@import 'layout/common/header.scss';
+@import 'layout/common/footer.scss';
 
 // base
 @import 'base/reset.scss';
 @import 'base/typography.scss'; 
 
 // components
-@import 'components/navigation.scss';
+// @import 'components/navigation.scss';
 
 // page-specific
-@import 'page-specific/home.scss'
+@import 'page-specific/home.scss'; 
+@import 'page-specific/blog-main.scss'; 
+@import 'page-specific/blog-post.scss'; 

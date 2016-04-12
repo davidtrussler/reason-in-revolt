@@ -1,0 +1,5 @@
+.blog-post__post, 
+.blog-post__comments, 
+.blog-post__secondary {
+	@include column(12); 
+}

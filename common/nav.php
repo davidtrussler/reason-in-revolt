@@ -1,7 +1,5 @@
 <!-- BEGIN nav -->
 <nav>
-	<h2>Main navigation</h2>
-
 	<ul>
 
 	<?php

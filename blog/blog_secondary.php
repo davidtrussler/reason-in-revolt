@@ -1,5 +1,5 @@
 <!-- BEGIN blog_secondary -->
-<section>
+<section class="blog-post__secondary">
 	<h2>Recent posts</h2>
 
 <?php

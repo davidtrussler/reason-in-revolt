@@ -1,0 +1,9 @@
+.common-footer {
+	@include clearfix(); 
+	background: orange; 
+	clear: both; 
+}
+
+.common-footer__content {
+	@include column(12); 
+}

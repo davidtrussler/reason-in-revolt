@@ -13,11 +13,11 @@ include ('../common/head.php');
 
 ?>
 
-	<body class="home">
+	<body class="homepage">
 
-<?php include('../common/header.php'); ?>
-<?php include('main.php'); ?>
-<?php include ('../common/footer.php'); ?>
+	<?php include('../common/header.php'); ?>
+	<?php include('main.php'); ?>
+	<?php include ('../common/footer.php'); ?>
 
 	</body>
 </html>

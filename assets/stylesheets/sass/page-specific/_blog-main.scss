@@ -1,0 +1,4 @@
+.blog-main__intro, 
+.blog-main__primary {
+	@include column(12); 
+}

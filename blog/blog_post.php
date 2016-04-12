@@ -1,5 +1,5 @@
 <!-- BEGIN blog_post -->
-<section>
+<section class="blog-post__post">
 	<h2>Post header</h2>
 
 <?php

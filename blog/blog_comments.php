@@ -1,5 +1,5 @@
 <!-- BEGIN blog_comments -->
-<section>
+<section class="blog-post__comments">
 
 <?php
 
@@ -101,15 +101,14 @@ if (count($comments) > 0) {
 
 ?>
 
-</section>
-
 <?php
 
 }
 
 ?>
 
-<section>
+<!-- BEGIN Add a comment -->
+<article>
  
 <?php 
 
@@ -273,5 +272,7 @@ if (isset($validCaptcha) && $validCaptcha == 'invalid') {
 
 ?>
 
+</article>
+<!-- END Add a comment -->
 </section>
 <!-- END blog_comments -->

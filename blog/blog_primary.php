@@ -56,7 +56,7 @@ if (isset($_GET['postId']) && $_GET['postId'] != '') {
 
 ?>
 
-	<section>
+	<section class="blog-main__primary">
 		<h2>Blog posts</h2>
 
 <?php

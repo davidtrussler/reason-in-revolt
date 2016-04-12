@@ -4,13 +4,11 @@ include ('../common/doctype.php');
 include ('../common/variables.php'); 
 include ('../common/dateFormatter.php'); 
 
-/*
 if (isset($_GET['postId'])) {
-	$primaryClass = 'blogPost'; 
+	$page_class = 'blog-post'; 
 } else {
-	$primaryClass = 'blogMain'; 
+	$page_class = 'blog-main'; 
 }
-*/
 
 $title = 'blog';
 
@@ -27,7 +25,7 @@ include ('../common/head.php');
 
 ?>
 
-	<body>
+	<body class="<?php echo $page_class; ?>">
 
 <?php
 

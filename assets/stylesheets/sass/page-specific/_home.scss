@@ -1,5 +1,4 @@
-.home {
-	section {
-		color: grey; 
-	}	
+.homepage__primary, 
+.homepage__secondary {
+	@include column(12); 
 }

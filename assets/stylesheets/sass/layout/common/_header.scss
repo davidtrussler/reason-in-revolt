@@ -1,0 +1,8 @@
+.common-header {
+	@include clearfix(); 
+	background: yellow; 
+}
+
+.common-header__content {
+	@include column(12); 
+}
